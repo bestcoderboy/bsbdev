@@ -1933,6 +1933,9 @@
   .text-\[\#e8d44d\]\/70 {
     color: color-mix(in oklab, #e8d44d 70%, transparent);
   }
+  .text-blue-100 {
+    color: var(--color-blue-100);
+  }
   .text-blue-200 {
     color: var(--color-blue-200);
   }
@@ -2103,11 +2106,23 @@
   .decoration-wavy {
     text-decoration-style: wavy;
   }
+  .decoration-1 {
+    text-decoration-thickness: 1px;
+  }
+  .decoration-2 {
+    text-decoration-thickness: 2px;
+  }
   .decoration-auto {
     text-decoration-thickness: auto;
   }
   .decoration-from-font {
     text-decoration-thickness: from-font;
+  }
+  .underline-offset-2 {
+    text-underline-offset: 2px;
+  }
+  .underline-offset-4 {
+    text-underline-offset: 4px;
   }
   .underline-offset-auto {
     text-underline-offset: auto;
@@ -2586,6 +2601,16 @@
         margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
         margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
       }
+    }
+  }
+  .xl\:ps-7 {
+    @media (width >= 80rem) {
+      padding-inline-start: calc(var(--spacing) * 7);
+    }
+  }
+  .xl\:ps-10 {
+    @media (width >= 80rem) {
+      padding-inline-start: calc(var(--spacing) * 10);
     }
   }
   .xl\:text-3xl {
