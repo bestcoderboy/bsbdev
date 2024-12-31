@@ -1,4 +1,4 @@
-/*! tailwindcss v4.0.0-beta.4 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.0.0-beta.8 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
   :root {
@@ -363,6 +363,7 @@
     --perspective-normal: 500px;
     --perspective-midrange: 800px;
     --perspective-distant: 1200px;
+    --aspect-video: 16 / 9;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -563,6 +564,9 @@
     clip: auto;
     white-space: normal;
   }
+  .\!relative {
+    position: relative !important;
+  }
   .absolute {
     position: absolute;
   }
@@ -633,7 +637,7 @@
     grid-row-end: auto;
   }
   .float-end {
-    float: end;
+    float: inline-end;
   }
   .float-left {
     float: left;
@@ -645,13 +649,13 @@
     float: right;
   }
   .float-start {
-    float: start;
+    float: inline-start;
   }
   .clear-both {
     clear: both;
   }
   .clear-end {
-    clear: end;
+    clear: inline-end;
   }
   .clear-left {
     clear: left;
@@ -663,7 +667,7 @@
     clear: right;
   }
   .clear-start {
-    clear: start;
+    clear: inline-start;
   }
   .container {
     width: 100%;
@@ -700,6 +704,9 @@
     @media (width >= 96rem) {
       max-width: 96rem !important;
     }
+  }
+  .m-1 {
+    margin: calc(var(--spacing) * 1);
   }
   .my-3 {
     margin-block: calc(var(--spacing) * 3);
@@ -809,9 +816,6 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
-  .aspect-video {
-    aspect-ratio: 16 / 9;
-  }
   .h-1\/3 {
     height: calc(1/3 * 100%);
   }
@@ -838,9 +842,6 @@
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1272,20 +1273,6 @@
       --tw-space-y-reverse: 1;
     }
   }
-  .space-x-2 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
-  .space-x-3 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
   .space-x-reverse {
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 1;
@@ -1501,14 +1488,14 @@
   .bg-\(color\:--my-color\) {
     background-color: var(--my-color);
   }
+  .bg-\[\#1f1f1f\] {
+    background-color: #1f1f1f;
+  }
   .bg-\[\#0088cc\] {
     background-color: #0088cc;
   }
   .bg-\[\#121212\] {
     background-color: #121212;
-  }
-  .bg-\[\#1f1f1f\] {
-    background-color: #1f1f1f;
   }
   .bg-\[color\:var\(--my-color\)\] {
     background-color: var(--my-color);
@@ -1690,9 +1677,6 @@
   }
   .object-top {
     object-position: top;
-  }
-  .p-1 {
-    padding: calc(var(--spacing) * 1);
   }
   .p-5 {
     padding: calc(var(--spacing) * 5);
@@ -2245,6 +2229,12 @@
   .\[keywords\:node-addon-api\] {
     keywords: node-addon-api;
   }
+  .\[vite\:css\] {
+    vite: css;
+  }
+  .\[vite\:html\] {
+    vite: html;
+  }
   .backface-hidden {
     backface-visibility: hidden;
   }
@@ -2495,6 +2485,16 @@
   font-family: "Instrument Sans", monospace;
   font-optical-sizing: auto;
   font-style: normal;
+}
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.icon-roblox {
 }
 @supports (-moz-orient: inline) {
   @layer base {

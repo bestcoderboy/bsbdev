@@ -11,3 +11,24 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icon-roblox {
+  /*width: 1.06640625em;*/
+}
