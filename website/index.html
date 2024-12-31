@@ -8,50 +8,145 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        let currentLang = "js"
+        function changeLang(newLang) {
+            document.querySelector(`#startingLine-${currentLang}`).hidden = true
+            document.querySelector(`#endingLine-${currentLang}`).hidden = true
+            document.querySelector(`#openingComment-${currentLang}`).hidden = true
+            document.querySelector(`#codeBlock-${currentLang}`).hidden = true
+
+            document.querySelector(`#startingLine-${newLang}`).hidden = false
+            document.querySelector(`#endingLine-${newLang}`).hidden = false
+            document.querySelector(`#openingComment-${newLang}`).hidden = false
+            document.querySelector(`#codeBlock-${newLang}`).hidden = false
+
+            currentLang = newLang
+        }
+    </script>
 </head>
-<body class="bg-[#121212]">
-    <div class="md:flex w-screen min-h-screen text-white roboto-mono">
-        <div class="h-1/3 sticky top-0 bg-[#1f1f1f] md:h-screen md:w-1/4 xl:w-1/5 p-5">
-            <h1 class="font-bold text-3xl lg:text-5xl mb-3">bsb.dev</h1>
-            <h2>a site for me to dump stuff that i will abandon after like five seconds</h2>
-        </div>
-        <div class="h-2/3 bg-[#121212] md:h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5">
-            <h3 class="text-2xl text-gray-400"><span class="text-orange-400">const</span> <span class="text-yellow-400">myProjects</span> = [</h3>
-            <div class="lg:ms-10 rounded-xl bg-[#1f1f1f] py-3 px-5 space-y-3 md:space-y-0 md:flex relative md:space-x-5">
-                <img src="/images/rotheme-banner.png" class="rounded-xl h-[96px]">
+<body class="bg-[#121212] overflow-x-clip break-words">
+    <div class="md:flex w-screen min-h-screen text-white">
+        <div class="h-1/3 top-0 bg-[#1f1f1f] md:h-screen md:w-1/4 p-5 instrument-sans md:grid md:justify-stretch">
+            <div>
+                <h1 class="font-medium italic text-4xl lg:text-5xl xl:text-6xl mb-1">bsb.dev</h1>
+                <h1 class="text-xl lg:text-2xl mb-3 ms-3">— by bestspyboy</h1>
+                <hr class="border-gray-700"/>
+                <h2 class="text-2xl my-3">a site for me to dump stuff that i will abandon after like five seconds</h2>
+                <hr class="border-gray-700"/>
+                <h2 class="text-2xl my-3">
+                    <i class="fa-brands fa-github text-white text-2xl me-2"></i> @bestcoderboy
+                </h2>
+                <h2 class="text-2xl my-3">
+                    <i class="fa-brands fa-bluesky text-white text-2xl me-2"></i> @bsb.dev
+                </h2>
+            </div>
+            <hr class="border-gray-700 mb-3 md:mb-0 md:hidden"/>
+            <div class="flex flex-row items-end mb-3">
                 <div>
-                    <p class="mb-3 font-bold text-2xl">rotheme</p>
+                    <p class="text-xl text-gray-400">change page language</p>
+                    <div class="text-2xl text-gray-400 h-fit instrument-sans space-y-3 xl:space-y-0 xl:flex xl:space-x-3">
+                        <a href="#" onclick="changeLang('js')" class="underline text-[#e8d44d]/70">javascript</a>
+                        <span>•</span>
+                        <a href="#" onclick="changeLang('py')" class="underline text-[#4288bf]/70">python</a>
+                        <span>•</span>
+                        <a href="#" onclick="changeLang('lua')" class="underline text-[#7161ff]/70">lua</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-2/3 text-lg md:text-xl lg:text-2xl bg-[#121212] md:h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5 roboto-mono">
+            <span class="text-gray-400" id="openingComment-lua" hidden>-- copyright bestspyboy, 2024</span>
+            <span class="text-gray-400" id="openingComment-js">// copyright bestspyboy, 2024</span>
+            <span class="text-gray-400" id="openingComment-py" hidden># copyright bestspyboy, 2024</span>
+
+            <br/><br/><!-- why this is even needed i'll never know -->
+
+            <span class="text-gray-400 mb-3" id="startingLine-lua" hidden><span class="text-blue-400">local</span> <span class="text-yellow-400">myProjects</span> = {</span>
+            <span class="text-gray-400 mb-3" id="startingLine-js"><span class="text-orange-400">const</span> <span class="text-yellow-400">myProjects</span> = [</span>
+            <span class="text-gray-400 mb-3" id="startingLine-py" hidden><span class="text-yellow-400">myProjects</span> = [</span>
+
+            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5 tracking-wide"> <!--bg-[#1f1f1f] py-3 px-5-->
+                <img src="/images/rotheme-banner.png" class="rounded-xl h-[96px] hidden md:block">
+                <div>
+                    <h3 class="mb-3 font-medium text-2xl">"rotheme"</h3>
                     <p>a stupid little extension that makes roblox look fancy</p>
                     <a href="https://bsb.dev/rotheme" class="text-blue-500">https://bsb.dev/rotheme</a>
                 </div>
-                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl">,</span>
+                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
-            <div class="lg:ms-10 rounded-xl bg-[#1f1f1f] py-3 px-5 space-y-3 md:space-y-0 md:flex relative md:space-x-5">
-                <img src="/images/this-site-banner.png" class="rounded-xl h-[96px]">
+            <hr class="border-gray-700 md:hidden"/>
+            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5"> <!--bg-[#1f1f1f] py-3 px-5-->
+                <img src="/images/fourier-banner.png" class="rounded-xl h-[96px] hidden md:block">
                 <div>
-                    <p class="mb-3 font-bold text-2xl">this site</p>
-                    <p>there's literally else nothing here. you're too early</p>
+                    <h3 class="mb-3 font-bold text-2xl">"fourier"</h3>
+                    <p>my dev studio to put any future roblox games in</p>
+                    <a href="https://fourier.dev" class="text-blue-500">https://fourier.dev</a>
+                </div>
+                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
+            </div>
+            <hr class="border-gray-700 md:hidden"/>
+            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5"> <!--bg-[#1f1f1f] py-3 px-5-->
+                <img src="/images/this-site-banner.png" class="rounded-xl h-[96px] hidden md:block">
+                <div>
+                    <h3 class="mb-3 font-bold text-2xl">"this site"</h3>
+                    <p>whoa! project recursion! it's referencing itself!!</p>
                     <a href="https://me.bsb.dev" class="text-blue-500">https://me.bsb.dev</a>
                 </div>
-                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl">,</span>
+                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
-            <h1 class="text-2xl text-gray-400 mb-5">];</h1>
-            <hr class="border-gray-800" />
-            <h3 class="text-2xl text-gray-400"><span class="text-blue-400">let</span> <span class="text-yellow-400">mySocials</span> = [</h3>
-            <div class="lg:ms-10 rounded-xl bg-[#1f1f1f] py-3 px-5 relative space-y-3 md:flex md:space-y-0 md:space-x-3">
-                <span class="text-green-500 text-l">"roblox"</span>:
-                <a href="https://www.roblox.com/users/301814265/profile" class="text-blue-500 text-l text-wrap break-words">"https://www.roblox.com/users/301814265/profile"</a>
-                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl">,</span>
-            </div>
-            <div class="lg:ms-10 rounded-xl bg-[#1f1f1f] py-3 px-5 relative space-y-3 md:flex md:space-y-0 md:space-x-3">
-                <span class="text-green-500 text-l">"bluesky"</span>:
-                <a href="https://bsky.app/profile/bsb.dev" class="text-blue-500 text-l text-wrap break-words">"https://bsky.app/profile/bsb.dev"</a>
-                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl">,</span>
-            </div>
-            <h1 class="text-2xl text-gray-400 mb-5">];</h1>
-            <hr class="border-gray-800" />
-            <h3 class="text-2xl text-gray-400"><span class="text-red-400">console</span>.<span class="text-yellow-400">log</span>(<span class="text-green-500">"by bestspyboy"</span>);</h3>
+
+            <span class="text-gray-400 mb-5" id="endingLine-lua" hidden>}</span>
+            <span class="text-gray-400 mb-5" id="endingLine-js">]</span>
+            <span class="text-gray-400 mb-5" id="endingLine-py" hidden>]</span>
+
+            <pre class="mt-5 roboto-mono text-gray-400 whitespace-pre-wrap" id="codeBlock-lua" hidden>
+<span class="text-blue-400">for</span> <span class="text-yellow-400">i</span>, <span class="text-yellow-400">project</span> in <span class="text-yellow-400">myProjects</span> do
+    <span class="text-blue-400">print</span>(<span class="text-yellow-400">project</span>.<span class="text-blue-400">name</span>)
+<span class="text-blue-400">end</span>
+
+-- hire me for something!
+-- email = table.concat({"me", "bsb.dev"}, "@")
+            </pre>
+
+            <pre class="mt-5 roboto-mono text-gray-400 whitespace-pre-wrap" id="codeBlock-js">
+<span class="text-yellow-400">myProjects</span>.<span class="text-blue-400">forEach</span>((<span class="text-yellow-400">project</span>) => {
+    <span class="text-green-400">console</span>.<span class="text-blue-400">log</span>(<span class="text-yellow-400">project</span>.<span class="text-blue-400">name</span>)
+})
+
+// hire me for something!
+// email = "me".concat("@", "bsb.dev")
+            </pre>
+
+            <pre class="mt-5 roboto-mono text-gray-400 whitespace-pre-wrap" id="codeBlock-py" hidden>
+<span class="text-blue-400">for</span> <span class="text-yellow-400">project</span> in <span class="text-yellow-400">myProjects</span>:
+    <span class="text-blue-400">print</span>(<span class="text-yellow-400">project</span>.<span class="text-blue-400">name</span>)
+
+# hire me for something!
+# email =
+            </pre>
+
+
+
+            <!--            <hr class="border-gray-800" />-->
+<!--            <h3 class="text-2xl text-gray-400"><span class="text-blue-400">let</span> <span class="text-yellow-400">mySocials</span> = [</h3>-->
+<!--            <div class="lg:ms-10 rounded-xl bg-[#1f1f1f] py-3 px-5 relative space-y-3 md:flex md:space-y-0 md:space-x-3">-->
+<!--                <span class="text-green-500 text-l">"roblox"</span>:-->
+<!--                <a href="https://www.roblox.com/users/301814265/profile" class="text-blue-500 text-l text-wrap break-words">"https://www.roblox.com/users/301814265/profile"</a>-->
+<!--                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl">,</span>-->
+<!--            </div>-->
+<!--            <div class="lg:ms-10 rounded-xl bg-[#1f1f1f] py-3 px-5 relative space-y-3 md:flex md:space-y-0 md:space-x-3">-->
+<!--                <span class="text-green-500 text-l">"bluesky"</span>:-->
+<!--                <a href="https://bsky.app/profile/bsb.dev" class="text-blue-500 text-l text-wrap break-words">"https://bsky.app/profile/bsb.dev"</a>-->
+<!--                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl">,</span>-->
+<!--            </div>-->
+<!--            <h1 class="text-2xl text-gray-400 mb-5">];</h1>-->
+<!--            <hr class="border-gray-800" />-->
+<!--            <h3 class="text-2xl text-gray-400"><span class="text-red-400">console</span>.<span class="text-yellow-400">log</span>(<span class="text-green-500">"by bestspyboy"</span>);</h3>-->
         </div>
         <div class="h-1/3 lg:h-screen bg-[#121212] hidden xl:block xl:w-1/5 p-5">
 
