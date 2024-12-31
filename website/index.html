@@ -31,7 +31,7 @@
 </head>
 <body class="bg-[#121212] overflow-x-clip break-words">
     <div class="md:flex w-screen min-h-screen text-white">
-        <div class="h-1/3 top-0 bg-[#1f1f1f] md:h-screen md:w-1/4 p-5 instrument-sans md:grid md:justify-stretch">
+        <div class="min-h-1/3 bg-[#1f1f1f] md:min-h-screen md:h-full md:w-1/4 p-5 instrument-sans md:grid md:justify-stretch">
             <div>
                 <h1 class="font-medium italic text-4xl lg:text-5xl xl:text-6xl mb-1">bsb.dev</h1>
                 <h1 class="text-xl lg:text-2xl mb-3 ms-3">— by bestspyboy</h1>
@@ -39,11 +39,11 @@
                 <h2 class="text-2xl my-3">a site for me to dump stuff that i will abandon after like five seconds</h2>
                 <hr class="border-gray-700"/>
                 <h2 class="text-2xl my-3 text-blue-500">
-                    <i class="fa-brands fa-github text-white text-2xl me-2"></i> <a href="https://github.com/bestcoderboy" target="_blank">@bestcoderboy</a>
+                    <i role="presentation" class="fa-brands fa-github text-white text-2xl me-2"></i> <a href="https://github.com/bestcoderboy" target="_blank">@bestcoderboy</a>
                 </h2>
                 <!-- underline decoration-2 underline-offset-4 -->
                 <h2 class="text-2xl my-3 text-blue-500">
-                    <i class="fa-brands fa-bluesky text-white text-2xl me-2"></i> <a href="https://bsky.app/profile/bsb.dev" target="_blank">@bsb.dev</a>
+                    <i role="presentation" class="fa-brands fa-bluesky text-white text-2xl me-2"></i> <a href="https://bsky.app/profile/bsb.dev" target="_blank">@bsb.dev</a>
                 </h2>
             </div>
             <hr class="border-gray-700 mb-3 md:mb-0 md:hidden"/>
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="h-2/3 text-lg md:text-xl lg:text-2xl bg-[#121212] md:h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5 roboto-mono xl:ps-7">
+        <div class="h-fit min-h-2/3 text-lg md:text-xl lg:text-2xl bg-[#121212] md:min-h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5 roboto-mono xl:ps-7 overflow-y-scroll">
             <span class="text-gray-400" id="openingComment-lua" hidden>-- copyright bestspyboy, 2024</span>
             <span class="text-gray-400" id="openingComment-js">// copyright bestspyboy, 2024</span>
             <span class="text-gray-400" id="openingComment-py" hidden># copyright bestspyboy, 2024</span>
@@ -76,7 +76,7 @@
                 <div>
                     <h3 class="mb-3 font-medium text-2xl">"rotheme"</h3>
                     <p>a stupid little extension that makes roblox look fancy</p>
-                    <a href="https://bsb.dev/rotheme" target="_blank" class="text-blue-500">https://bsb.dev/rotheme</a>
+                    <a role="button" href="https://bsb.dev/rotheme" target="_blank" class="text-blue-500">https://bsb.dev/rotheme</a>
                 </div>
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
@@ -86,7 +86,17 @@
                 <div>
                     <h3 class="mb-3 font-bold text-2xl">"fourier"</h3>
                     <p>my dev studio to put any future roblox games in</p>
-                    <a href="https://fourier.dev" target="_blank" class="text-blue-500">https://fourier.dev</a>
+                    <a role="button" href="https://fourier.dev" target="_blank" class="text-blue-500">https://fourier.dev</a>
+                </div>
+                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
+            </div>
+            <hr class="border-gray-700 md:hidden"/>
+            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5"> <!--bg-[#1f1f1f] py-3 px-5-->
+                <img src="/images/tle-banner.png" class="rounded-xl h-[96px] hidden md:block" alt="a screenshot of the luxury elevator">
+                <div>
+                    <h3 class="mb-3 font-bold text-2xl">"the luxury elevator"</h3>
+                    <p>i helped completely revamp my childhood game's gui 😎</p>
+                    <a role="button" href="https://theluxuryelevator.com" class="text-blue-500">https://theluxuryelevator.com</a>
                 </div>
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
@@ -96,7 +106,7 @@
                 <div>
                     <h3 class="mb-3 font-bold text-2xl">"this site"</h3>
                     <p>whoa! project recursion! it's referencing itself!!</p>
-                    <a href="https://me.bsb.dev" class="text-blue-500">https://me.bsb.dev</a>
+                    <a role="button" href="https://me.bsb.dev" class="text-blue-500">https://me.bsb.dev</a>
                 </div>
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
