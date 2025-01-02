@@ -4,10 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js && npm run minify-html && npm run minify-css",
+    "minify-html": "html-minifier-terser ./website/index.html -o ./website/index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true",
+    "minify-css": "csso ./website/style.css --output ./website/style.css"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.0.0-beta.8",
     "tailwindcss": "^4.0.0-beta.8"
+  },
+  "devDependencies": {
+    "csso-cli": "^4.0.2",
+    "html-minifier-terser": "^7.2.0"
   }
 }
