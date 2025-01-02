@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const commitHash = process.env.CF_PAGES_COMMIT_SHA || ''
-const shortHash = commitHash.slice(0, 7)  // only the first six chars like ab1cd2
+const shortHash = commitHash.slice(0, 7)  // only the first seven chars like ab1cd2e
 const filePath = path.resolve(__dirname, './website/index.html')
 
 try {
