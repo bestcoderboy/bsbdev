@@ -17,16 +17,5 @@
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
-}
-
-/* ==========================================
-Single-colored icons can be modified like so:
-.icon-name {
-  font-size: 32px;
-  color: red;
-}
-========================================== */
-
-.icon-roblox {
-  /*width: 1.06640625em;*/
+  transform: translate(74px,0px);
 }
