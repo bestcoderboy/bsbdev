@@ -11,30 +11,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
-    <script>
-        let currentLang = "js"
-        function changeLang(newLang) {
-            document.querySelector(`#startingLine-${currentLang}`).hidden = true
-            document.querySelector(`#endingLine-${currentLang}`).hidden = true
-            document.querySelector(`#openingComment-${currentLang}`).hidden = true
-            document.querySelector(`#codeBlock-${currentLang}`).hidden = true
-
-            document.querySelector(`#startingLine-${newLang}`).hidden = false
-            document.querySelector(`#endingLine-${newLang}`).hidden = false
-            document.querySelector(`#openingComment-${newLang}`).hidden = false
-            document.querySelector(`#codeBlock-${newLang}`).hidden = false
-
-            currentLang = newLang
-        }
-    </script>
+    <script src="/scripts/main.js"></script>
 </head>
 <body class="bg-[#121212] overflow-x-clip break-words">
     <div class="md:flex w-screen min-h-screen text-white">
         <div class="bg-[#1f1f1f] md:w-1/4 p-5 instrument-sans md:grid md:justify-stretch">
             <div>
                 <h1 class="font-medium italic text-4xl lg:text-5xl xl:text-6xl mb-1">bsb.dev</h1>
+                <!-- inline-block text-white/50 bg-clip-text bg-gradient-to-r from-[#DC29EB] to-[#ff067b] -->
                 <h1 class="text-xl lg:text-2xl mb-3 ms-3">— by bestspyboy</h1>
                 <hr class="border-gray-700"/>
                 <h2 class="text-2xl my-3">a site for me to dump stuff that i will abandon after like five seconds</h2>
@@ -53,7 +39,7 @@
                 </h2>
                 <hr class="border-gray-700 hidden md:block"/>
                 <div class="text-sm text-gray-600 hidden md:block my-3">
-                    v<a class="underline" href="https://github.com/bestcoderboy/bsbdev/commits/main/">{{{COMMIT-HASH}}}</a> - adjusted icon positions
+                    v<a class="underline" href="https://github.com/bestcoderboy/bsbdev/commits/main/">{{{COMMIT-HASH}}}</a> - added discord integration and main.js file
                 </div>
             </div>
             <hr class="border-gray-700 mb-3 md:mb-0 md:hidden"/>
@@ -71,9 +57,9 @@
             </div>
         </div>
         <div class="h-fit min-h-2/3 text-lg md:text-xl lg:text-2xl bg-[#121212] md:min-h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5 roboto-mono xl:ps-7">
-            <p class="text-gray-400" id="openingComment-lua" hidden>-- copyright bestspyboy, 2025</p>
-            <p class="text-gray-400" id="openingComment-js">// copyright bestspyboy, 2025</p>
-            <p class="text-gray-400" id="openingComment-py" hidden># copyright bestspyboy, 2025</p>
+            <p class="text-gray-400" id="openingComment-lua" hidden>-- loading...</p>
+            <p class="text-gray-400" id="openingComment-js">// loading...</p>
+            <p class="text-gray-400" id="openingComment-py" hidden># loading...</p>
 
 <!--            <br/><br/>&lt;!&ndash; why this is even needed i'll never know &ndash;&gt;-->
 
