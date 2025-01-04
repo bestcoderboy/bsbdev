@@ -1,14 +1,17 @@
+// made by bestspyboy, 2025 :)
+// licensed under MIT, full details in LICENSE
+
 let currentLang = "js"
 const elements = ["startingLine", "endingLine", "openingComment", "codeBlock"]
 
-// iterates over each
+// iterates over each language
 function changeLang(newLang) {
     elements.forEach((element) => {
         document.querySelector(`#${element}-${currentLang}`).hidden = true
     })
 
     elements.forEach((element) => {
-        document.querySelector(`#${element}-${newLang}`).hidden = false;
+        document.querySelector(`#${element}-${newLang}`).hidden = false
     })
 
     currentLang = newLang
@@ -19,27 +22,7 @@ function changeStatusText(newStatus) {
     document.querySelector("#openingComment-lua").innerText = `-- ${newStatus}`
     document.querySelector("#openingComment-py").innerText = `# ${newStatus}`
 }
-// deprecated in favor of websocket method
-// function fetchStatus() {
-//     fetch("https://api.lanyard.rest/v1/users/725417693699899534")
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log("data")
-//             if (!data.success) {
-//                 changeStatusText("there was an error fetching my discord status :(")
-//             } else {
-//                 const obj = data.data
-//                 if (obj.listening_to_spotify) {
-//                     changeStatusText(`i'm currently listening to ${obj.spotify.song} by ${obj.spotify.artist}`)
-//                 } else if (obj.activities.length > 0) {
-//                     const activity = obj.activities[0]
-//                     if (activity.type === 0) {
-//                         changeStatusText(`i'm currently playing ${activity.name}`)
-//                     }
-//                 }
-//             }
-//         })
-// }
+
 function fetchStatus() {
     const socket = new WebSocket("wss://api.lanyard.rest/socket")
     socket.onopen = () => sendInitMessage(socket)
