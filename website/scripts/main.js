@@ -69,7 +69,9 @@ function handlePresence(obj) {
 
     if (obj.activities.length > 0) {
         const activity = obj.activities[0]
-        if (activity.type === 0) {
+        if (activity.name === "PyCharm" || activity.name === "WebStorm") {
+            return changeStatusText(`i'm currently developing on ${activity.name}`)
+        } else if (activity.type === 0) {
             return changeStatusText(`i'm currently playing ${activity.name}`)
         } else {
             return changeStatusText(`i'm currently on ${activity.name}`)
