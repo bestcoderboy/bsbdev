@@ -1,8 +1,19 @@
 // made by bestspyboy, 2025 :)
 // licensed under MIT, full details in LICENSE
 
+console.log("%cbsb.dev", "font-size: 3rem; font-weight: 700")
+console.log("%ca little website by bestspyboy", "font-size: 1.5rem; font-style: italic")
+
 let currentLang = "js"
 const elements = ["startingLine", "endingLine", "openingComment", "codeBlock"]
+
+let spotifyTimestamps = {
+    "start": -1,
+    "end": -1,
+}
+let spotifyEnabled = false
+let spotifySize = 0
+let progressLabelEnabled = true
 
 // iterates over each language
 function changeLang(newLang) {
@@ -17,11 +28,73 @@ function changeLang(newLang) {
     currentLang = newLang
 }
 
-function changeStatusText(newStatus) {
-    document.querySelector("#openingComment-js").innerText = `// ${newStatus}`
-    document.querySelector("#openingComment-lua").innerText = `-- ${newStatus}`
-    document.querySelector("#openingComment-py").innerText = `# ${newStatus}`
+function changeStatusText(newStatus, id) {
+    if (typeof id === 'undefined') {
+        id = "openingComment"
+    }
+
+    document.querySelector(`#${id}-js`).innerText = `// ${newStatus}`
+    document.querySelector(`#${id}-lua`).innerText = `-- ${newStatus}`
+    document.querySelector(`#${id}-py`).innerText = `# ${newStatus}`
 }
+
+// adjusts size of progress bar based on screen breakpoints
+function resizeSpotifyProgress() {
+    const screenSize = document.documentElement.clientWidth
+    if (screenSize < 768) {
+        spotifySize = 10
+        progressLabelEnabled = false
+    } else if (spotifySize < 1280) {
+        spotifySize = 17
+        progressLabelEnabled = true
+    } else if (spotifySize <= 1920) {
+        spotifySize = 25
+        progressLabelEnabled = true
+    } else {
+        spotifySize = 30
+        progressLabelEnabled = true
+    }
+}
+
+// runs every second (checks if spotify is enabled)
+function spotifyProgressInterval() {
+    if (!spotifyEnabled) {
+        document.querySelector(`#progressBar-${currentLang}`).hidden = true
+        return;
+    }
+
+    document.querySelector(`#progressBar-${currentLang}`).hidden = false
+
+    const currentTime = Date.now()
+    const { start, end } = spotifyTimestamps
+
+    const elapsed = Math.max(0, Math.min((currentTime - start) / 1000, (end - start) / 1000))
+    const total = (end - start) / 1000
+
+    const progressPercent = elapsed / total
+    const hyphens = Math.floor(progressPercent * spotifySize)
+    const spaces = spotifySize - hyphens - 1
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60)
+        const secs = Math.floor(seconds % 60).toString().padStart(2, '0')
+        return `${minutes}:${secs}`
+    }
+
+    const elapsedTime = formatTime(elapsed)
+    const totalTime = formatTime(total)
+    let prefix = ""
+
+    if (progressLabelEnabled) {
+        console.log("progressLabelEnabled")
+        prefix = "progress = "
+    }
+
+    const progressBar = `${prefix}"${elapsedTime} [${"-".repeat(hyphens)}ㅇ${"-".repeat(spaces)}] ${totalTime}"`
+    changeStatusText(progressBar, "progressBar")
+}
+
+setInterval(spotifyProgressInterval, 1000)
 
 function fetchStatus() {
     const socket = new WebSocket("wss://api.lanyard.rest/socket")
@@ -64,7 +137,13 @@ function handleMessage(event, socket) {
 // function handling most possible presence cases
 function handlePresence(obj) {
     if (obj.listening_to_spotify) {
+        spotifyTimestamps = obj.spotify.timestamps
+        spotifyEnabled = true
+        spotifyProgressInterval()
         return changeStatusText(`i'm currently listening to ${obj.spotify.song} by ${obj.spotify.artist}`)
+    } else {
+        spotifyEnabled = false
+        document.querySelector(`#progressBar-${currentLang}`).hidden = true
     }
 
     if (obj.activities.length > 0) {
@@ -102,6 +181,5 @@ function handlePresence(obj) {
     changeStatusText("i'm not currently active")
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchStatus()
-})
+document.addEventListener('DOMContentLoaded', fetchStatus)
+resizeSpotifyProgress()
