@@ -25,6 +25,11 @@ function changeLang(newLang) {
         document.querySelector(`#${element}-${newLang}`).hidden = false
     })
 
+    if (spotifyEnabled) {
+        document.querySelector(`#progressBar-${currentLang}`).hidden = true
+        document.querySelector(`#progressBar-${newLang}`).hidden = false
+    }
+
     currentLang = newLang
 }
 
