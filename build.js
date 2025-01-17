@@ -7,7 +7,7 @@ const filePath = path.resolve(__dirname, './website/index.html')
 
 try {
     let html = fs.readFileSync(filePath, 'utf8')
-    html = html.replace('{{{COMMIT-HASH}}}', shortHash)
+    html = html.replaceAll('{{{COMMIT-HASH}}}', shortHash)
     fs.writeFileSync(filePath, html)
 } catch (err) {
     console.error(`error while reading index.html: ${err.message}`)
