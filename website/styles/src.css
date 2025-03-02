@@ -19,3 +19,11 @@
   fill: currentColor;
   transform: translate(0px,-1px);
 }
+
+/* prevent ring for command line */
+:where(textarea),
+:where(input[type="text"]){
+  appearance: none;
+  border-style: solid;
+  outline: none;
+}

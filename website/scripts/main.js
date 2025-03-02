@@ -33,14 +33,26 @@ function changeLang(newLang) {
     currentLang = newLang
 }
 
-function changeStatusText(newStatus, id) {
+function changeStatusText(newStatus, id, noAnim) {
     if (typeof id === 'undefined') {
         id = "openingComment"
     }
 
-    document.querySelector(`#${id}-js`).innerText = `// ${newStatus}`
-    document.querySelector(`#${id}-lua`).innerText = `-- ${newStatus}`
-    document.querySelector(`#${id}-py`).innerText = `# ${newStatus}`
+    const editInnerText = () => {
+        setTimeout(() => {
+            document.querySelector(`#${id}-js`).innerText = `// ${newStatus}`
+            document.querySelector(`#${id}-lua`).innerText = `-- ${newStatus}`
+            document.querySelector(`#${id}-py`).innerText = `# ${newStatus}`
+        }, 1000)
+    }
+
+    if (noAnim || !document.hasFocus()) {
+        editInnerText()
+    } else {
+        new TypeIt(`#${id}-js`, {strings: `// ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
+        new TypeIt(`#${id}-lua`, {strings: `-- ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
+        new TypeIt(`#${id}-py`, {strings: `# ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
+    }
 }
 
 // adjusts size of progress bar based on screen breakpoints
@@ -95,7 +107,7 @@ function spotifyProgressInterval() {
     }
 
     const progressBar = `${prefix}"${elapsedTime} [${"-".repeat(hyphens)}ㅇ${"-".repeat(spaces)}] ${totalTime}"`
-    changeStatusText(progressBar, "progressBar")
+    changeStatusText(progressBar, "progressBar", true)
 }
 
 setInterval(spotifyProgressInterval, 1000)
