@@ -91,7 +91,6 @@ function spotifyProgressInterval() {
     let prefix = ""
 
     if (progressLabelEnabled) {
-        console.log("progressLabelEnabled")
         prefix = "progress = "
     }
 
