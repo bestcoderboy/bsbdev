@@ -585,6 +585,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-\[1em\] {
+    width: 1em;
+  }
   .w-full {
     width: 100%;
   }
