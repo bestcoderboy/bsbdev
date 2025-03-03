@@ -9,20 +9,15 @@
     <title>bsb.dev</title>
     <link rel="stylesheet" href="/styles/build.css">
 
-    <meta name="description" content="this is bsb.dev, bestspyboy's personal site to host projects, blogs and more.">
+    <meta name="description" content="BestSpyBoy's personal site, dedicated to showcasing my open-source projects, my blog, and a collection of all my social media accounts.">
+    <link rel="canonical" href="https://me.bsb.dev" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    <script src="/scripts/main.js"></script>
-
-    <link rel="icon" href="./images/bsb-profile.webp">
-    <link rel="apple-touch-icon" href="./images/bsb-profile.webp">
-
-    <!-- this is anonymous guys dont cancel me -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="5cce7e6b-ed4a-45dc-93ff-27e1ca4d8ca4"></script>
+    <link rel="icon" href="/images/bsb-profile.webp">
+    <link rel="apple-touch-icon" href="/images/bsb-profile.webp">
 </head>
 <body class="bg-radial from-slate-950 to-black overflow-x-clip break-words">
     <div class="md:flex w-screen min-h-screen text-white">
@@ -52,15 +47,15 @@
                 <hr class="border-gray-700 hidden md:block"/>
                 <p class="text-xl text-gray-400 mt-3">change script language</p>
                 <div class="text-2xl text-gray-400 h-fit instrument-sans space-y-3 xl:space-y-0 xl:flex xl:space-x-3">
-                    <button onclick="changeLang('js')" class="cursor-pointer underline text-[#e8d44d]/70">javascript</button>
+                    <button onclick="changeLang('js')" class="cursor-pointer underline text-[#e8d44d]/90">javascript</button>
                     <span>•</span>
-                    <button onclick="changeLang('py')" class="cursor-pointer underline text-[#4288bf]/70">python</button>
+                    <button onclick="changeLang('py')" class="cursor-pointer underline text-[#4288bf]/90">python</button>
                     <span>•</span>
-                    <button onclick="changeLang('lua')" class="cursor-pointer underline text-[#7161ff]/70">lua</button>
+                    <button onclick="changeLang('lua')" class="cursor-pointer underline text-[#7161ff]/90">lua</button>
                 </div>
                 <hr class="border-gray-700 hidden md:block md:my-4"/>
-                <div class="text-sm text-gray-600 hidden md:block my-3">
-                    v<a class="underline" href="https://github.com/bestcoderboy/bsbdev/commits/main/">{{{COMMIT-HASH}}}</a> - added typing animation to status
+                <div class="text-sm text-gray-400 hidden md:block my-3">
+                    v<a class="underline" href="https://github.com/bestcoderboy/bsbdev/commits/main/">{{{COMMIT-HASH}}}</a> - adjusted contrast, fixed meta + script tags
                 </div>
             </div>
             <hr class="border-gray-700 mb-3 md:mb-0 md:hidden"/>
@@ -222,5 +217,12 @@
             </symbol>
         </defs>
     </svg>
+
+    <!-- leave render-blocking scripts to bottom of body -->
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script src="/scripts/main.js"></script>
+    
+    <!-- this is anonymous guys dont cancel me -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="5cce7e6b-ed4a-45dc-93ff-27e1ca4d8ca4"></script>
 </body>
 </html>
