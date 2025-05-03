@@ -39,20 +39,20 @@ function changeStatusText(newStatus, id, noAnim) {
     }
 
     const editInnerText = () => {
-        setTimeout(() => {
+        // setTimeout(() => {
             document.querySelector(`#${id}-js`).innerText = `// ${newStatus}`
             document.querySelector(`#${id}-lua`).innerText = `-- ${newStatus}`
             document.querySelector(`#${id}-py`).innerText = `# ${newStatus}`
-        }, 1000)
+        // }, 1000)
     }
 
-    if (noAnim || !document.hasFocus()) {
-        editInnerText()
-    } else {
-        new TypeIt(`#${id}-js`, {strings: `// ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
-        new TypeIt(`#${id}-lua`, {strings: `-- ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
-        new TypeIt(`#${id}-py`, {strings: `# ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
-    }
+    // if (noAnim || !document.hasFocus()) {
+    editInnerText()
+    // } else {
+        // new TypeIt(`#${id}-js`, {strings: `// ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
+        // new TypeIt(`#${id}-lua`, {strings: `-- ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
+        // new TypeIt(`#${id}-py`, {strings: `# ${newStatus}`, speed: 75, startDelete: true, afterComplete: editInnerText}).go();
+    // }
 }
 
 // adjusts size of progress bar based on screen breakpoints
