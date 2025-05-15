@@ -1,5 +1,6 @@
 # me.bsb.dev
 welcome to my repo for my personal website!
+
 the licence is MIT, its appreciated if you link back to my repo somehow :)
 
 ## technology
