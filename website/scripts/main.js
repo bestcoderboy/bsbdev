@@ -1,5 +1,6 @@
 // made by bestspyboy, 2025 :)
 // licensed under MIT, full details in LICENSE
+// noinspection JSUnresolvedReference
 
 console.log("%cbsb.dev", "font-size: 3rem; font-weight: 700");
 console.log("%ca website by bestspyboy", "font-size: 1.5rem; font-style: italic");
@@ -153,9 +154,10 @@ function handlePresence(obj) {
         spotifyTimestamps = obj.spotify.timestamps;
         spotifyEnabled = true;
         spotifyProgressInterval();
-        return changeStatusText(`i'm currently listening to ${obj.spotify.song} by ${obj.spotify.artist}`);
+        // convert multiple artist format from semicolon to comma
+        return changeStatusText(`i'm currently listening to ${obj.spotify.song} by ${obj.spotify.artist.replaceAll(";", ",")}`);
     } else {
-        spotifyEnabled = false
+        spotifyEnabled = false;
         document.querySelector(`#progressBar-${currentLang}`).hidden = true;
     }
 
