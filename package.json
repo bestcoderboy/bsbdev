@@ -12,8 +12,8 @@
     "tw-build": "npx @tailwindcss/cli -i website/static/styles/src.css -o ./website/styles/build.css --minify"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.0-beta.8",
-    "tailwindcss": "^4.0.0-beta.8"
+    "@tailwindcss/cli": "^4.1.12",
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
     "html-minifier-terser": "^7.2.0"

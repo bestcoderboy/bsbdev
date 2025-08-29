@@ -20,8 +20,9 @@
     <link rel="apple-touch-icon" href="/static/images/bsb-profile.webp">
 </head>
 <body class="bg-radial from-slate-950 to-black overflow-x-clip break-words">
-    <div class="md:flex w-screen min-h-screen text-white">
-        <div class="bg-[#061018] md:w-1/4 p-5 instrument-sans md:grid md:justify-stretch">
+    <div class="fixed top-0 z-1 bg-[#061018] w-1/5 h-screen"></div>
+    <div class="md:flex w-screen min-h-screen text-white mx-auto container">
+        <div class="bg-[#061018] md:w-2/7 p-5 instrument-sans md:grid md:justify-stretch z-10">
             <div>
                 <h1 class="font-medium italic text-4xl lg:text-5xl xl:text-6xl mb-1">bsb.dev</h1>
                 <h2 class="text-xl lg:text-2xl mb-3 ms-3">— by bestspyboy</h2>
@@ -61,7 +62,7 @@
             </div>
             <hr class="border-gray-700/60 mb-3 md:mb-0 md:hidden"/>
         </div>
-        <div class="h-fit min-h-2/3 text-lg md:text-xl lg:text-2xl md:min-h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5 roboto-mono xl:ps-7">
+        <div class="z-10 h-fit min-h-2/3 text-lg md:text-xl lg:text-2xl md:min-h-screen md:w-3/4 xl:w-3/5 p-5 space-y-5 roboto-mono xl:ps-7">
             <p class="text-gray-400" id="openingComment-lua" hidden>-- loading...</p>
             <p class="text-gray-400" id="openingComment-js">// loading...</p>
             <p class="text-gray-400" id="openingComment-py" hidden># loading...</p>
@@ -84,22 +85,32 @@
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
             <hr class="border-gray-700/60 md:hidden"/>
-            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5"> <!--bg-[#1f1f1f] py-3 px-5-->
-                <img src="/static/images/tlebot-banner.webp" height="96" width="151" class="rounded-xl h-[96px] hidden md:block" alt="a stylized four icon representing the fourier logo">
+            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5 tracking-wide"> <!--bg-[#1f1f1f] py-3 px-5-->
+                <img src="/static/images/roctrl-pay.webp" height="96" width="151" class="rounded-xl h-[96px] hidden md:block" alt="a banner with the rotheme header and a blue gradient">
                 <div>
-                    <h3 class="mb-3 font-bold text-2xl">"tlebot"</h3>
-                    <p>my open-source discord bot with mediawiki integration!</p>
-                    <a role="button" href="https://bsb.dev/tlebot" target="_blank" class="text-blue-500">https://bsb.dev/tlebot</a>
+                    <h3 class="mb-3 font-medium text-2xl">"roctrl"</h3>
+                    <p>easy-to-use robux payment links for developers</p>
+                    <a role="button" href="https://rotheme.com" target="_blank" class="text-blue-500">https://roctrl.com</a>
+                </div>
+                <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
+            </div>
+            <hr class="border-gray-700/60 md:hidden"/>
+            <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5 tracking-wide"> <!--bg-[#1f1f1f] py-3 px-5-->
+                <img src="/static/images/bsb-gg-banner.webp" height="96" width="151" class="rounded-xl h-[96px] hidden md:block" alt="a banner with the rotheme header and a blue gradient">
+                <div>
+                    <h3 class="mb-3 font-medium text-2xl">"bsb.gg"</h3>
+                    <p>a collection of useful developer utilities</p>
+                    <a role="button" href="https://rotheme.com" target="_blank" class="text-blue-500">https://bsb.gg</a>
                 </div>
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
             <hr class="border-gray-700/60 md:hidden"/>
             <div class="text-base lg:ms-10 rounded-xl space-y-3 md:space-y-0 md:flex relative md:space-x-5 mt-5"> <!--bg-[#1f1f1f] py-3 px-5-->
-                <img src="/static/images/tle-banner.webp" height="96" width="151" class="rounded-xl h-[96px] hidden md:block" alt="a screenshot of the luxury elevator">
+                <img src="/static/images/tlebot-banner.webp" height="96" width="151" class="rounded-xl h-[96px] hidden md:block" alt="a stylized four icon representing the fourier logo">
                 <div>
-                    <h3 class="mb-3 font-bold text-2xl">"the luxury elevator"</h3>
-                    <p>did project management, ui design, created some ugc</p>
-                    <a role="button" href="https://theluxuryelevator.com" target="_blank" class="text-blue-500">https://theluxuryelevator.com</a>
+                    <h3 class="mb-3 font-bold text-2xl">"tlebot"</h3>
+                    <p>my open-source discord bot with mediawiki integration!</p>
+                    <a role="button" href="https://bsb.dev/tlebot" target="_blank" class="text-blue-500">https://github.com/bestcoderboy/TLEBot</a>
                 </div>
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
             </div>
@@ -135,7 +146,7 @@
 # email = f"me@{domain}"
             </pre>
         </div>
-        <div class="hidden xl:block xl:w-1/5 p-5 text-white"></div>
+        <div class="hidden p-5 text-white"></div>
     </div>
 
     <!-- svg symbol declaration to save bandwidth -->
