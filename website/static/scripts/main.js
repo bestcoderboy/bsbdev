@@ -69,10 +69,7 @@ function resizeSpotifyProgress() {
 
 // runs every second (checks if spotify is enabled)
 function spotifyProgressInterval() {
-    if (!spotifyEnabled) {
-        document.querySelector(`#progressBar-${currentLang}`).hidden = true;
-        return;
-    }
+    if (!spotifyEnabled) return document.querySelector(`#progressBar-${currentLang}`).hidden = true;
 
     // show the spotify progress bar
     document.querySelector(`#progressBar-${currentLang}`).hidden = false;
@@ -189,3 +186,65 @@ function handlePresence(obj) {
 
 document.addEventListener('DOMContentLoaded', fetchStatus);
 resizeSpotifyProgress();
+
+// terminal functions, code
+
+// one-liner to generate dates in Wkd Mth DD HH:MM:SS format
+// gets rid of year like the login date in the mac terminal
+const terminalDate = () => new Date().toLocaleString('en-GB', {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+})
+    .replace(',', '')
+    .replace(/ \d{4},/, "");
+
+
+const pause = async (t) => await new Promise(r => setTimeout(r, t));
+
+// this whole thing could be better written, but hey it was written in an hour
+async function animateTerminal() {
+    const login = document.querySelector(".terminal-login");
+    const output = document.querySelector(".terminal-output");
+    const terminal = document.querySelector(".terminal-div")
+    const cursor = document.querySelector(".blink");
+    const langCmd = document.querySelector(`.terminal-${currentLang}`);
+
+    document.querySelector(".terminal-date").textContent = `Last login: ${terminalDate()} on ttys003`
+
+    // hide all terminal outputs
+    login.classList.add("hidden");
+    output.classList.add("hidden");
+    cursor.classList.add("hidden");
+    ["js", "lua", "py"].forEach((lang) =>
+        document.querySelector(`.terminal-${lang}`).classList.add("hidden")
+    );
+
+    // slowly show each component of the terminal
+    terminal.style.opacity = "1";
+    terminal.classList.remove("hidden");
+    await pause(500);
+
+    login.classList.remove("hidden");
+    await pause(500);
+
+    langCmd.classList.remove("hidden");
+    cursor.classList.remove("hidden");
+    await pause(1250);
+
+    cursor.classList.add("hidden");
+    output.classList.remove("hidden");
+}
+
+const hideTerminal = () => {
+    document.querySelector(".terminal-div").style.opacity = "0";
+    document.querySelector(".terminal-div").classList.remove("hidden");
+}
+
+document.querySelector(".terminal-start").addEventListener("click", animateTerminal);
+document.querySelector(".terminal-close").addEventListener("click", hideTerminal);
