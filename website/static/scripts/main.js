@@ -100,7 +100,7 @@ function spotifyProgressInterval() {
     if (progressLabelEnabled) prefix = "progress = ";
 
     // decoded URL format because utf-8 doesn't like the circle icon
-    const progressBar = `${prefix}"${elapsedTime} [${"-".repeat(hyphens)}${decodeURIComponent("%E3%85%87")}${"-".repeat(spaces)}] ${totalTime}"`;
+    const progressBar = `${prefix}"${elapsedTime} [${"-".repeat(hyphens)}〇${"-".repeat(spaces)}] ${totalTime}"`;
     changeStatusText(progressBar, "progressBar", true);
 }
 
