@@ -243,7 +243,7 @@ async function animateTerminal() {
 
 const hideTerminal = () => {
     document.querySelector(".terminal-div").style.opacity = "0";
-    document.querySelector(".terminal-div").classList.remove("hidden");
+    document.querySelector(".terminal-div").classList.add("hidden");
 }
 
 document.querySelector(".terminal-start").addEventListener("click", animateTerminal);
