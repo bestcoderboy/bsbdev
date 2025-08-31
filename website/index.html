@@ -19,9 +19,12 @@
     <link rel="icon" href="/static/images/bsb-profile.webp">
     <link rel="apple-touch-icon" href="/static/images/bsb-profile.webp">
 </head>
-<body class="bg-radial from-slate-950 to-black overflow-x-clip break-words">
+<body>
+    <!-- background divs to prevent white background on overscrolling -->
+    <div class="fixed top-0 left-0 -z-10 w-screen h-svh bg-radial from-slate-950 to-black"></div>
     <div class="fixed top-0 z-1 bg-[#061018] w-1/5 xl:w-1/6 h-screen hidden md:block"></div>
-    <div class="md:flex w-screen min-h-screen text-white mx-auto container">
+
+    <div class="md:flex w-screen min-h-screen text-white mx-auto container z-10">
         <div class="bg-[#061018] md:w-2/7 p-5 instrument-sans md:grid md:justify-stretch z-10">
             <div>
                 <h1 class="font-medium italic text-4xl lg:text-5xl xl:text-6xl mb-1">bsb.dev</h1>
@@ -40,7 +43,9 @@
                         target="_blank">@bestspyboy</a>
                 </h2>
                 <h2 class="text-2xl my-3 text-blue-500">
-                    <svg class="icon me-2" style="width: 24px; height: 24px;"><use xlink:href="#icon-github"></use></svg> <a href="https://github.com/bestcoderboy" target="_blank">@bestcoderboy</a>
+                    <svg class="icon me-2" style="width: 24px; height: 24px;"><use xlink:href="#icon-github"></use></svg> <a
+                        href="https://github.com/bestcoderboy"
+                        target="_blank">@bestcoderboy</a>
                 </h2>
 
                 <hr class="border-gray-700/60 hidden md:block"/>
@@ -57,7 +62,7 @@
                 <hr class="border-gray-700/60 hidden md:block md:my-4"/>
 
                 <div class="text-sm text-gray-400 hidden md:block my-3">
-                    v<a class="underline" href="https://github.com/bestcoderboy/bsbdev/commits/main/">{{{COMMIT-HASH}}}</a> - patch: fixed commit title, links
+                    v<a class="underline" href="https://github.com/bestcoderboy/bsbdev/commits/main/">{{{COMMIT-HASH}}}</a> - patch: fixed build script locations
                 </div>
             </div>
             <hr class="border-gray-700/60 mb-3 md:mb-0 md:hidden"/>
@@ -109,7 +114,7 @@
                 <img src="/static/images/tlebot-banner.webp" height="96" width="151" class="rounded-xl h-[96px] hidden md:block" alt="a stylized four icon representing the fourier logo">
                 <div>
                     <h3 class="mb-3 font-bold text-2xl">"tlebot"</h3>
-                    <p>my open-source discord bot with mediawiki integration</p>
+                    <p>my discord bot with mediawiki integration</p>
                     <a role="button" href="https://bsb.dev/tlebot" target="_blank" class="text-blue-500">https://github.com/bestcoderboy/TLEBot</a>
                 </div>
                 <span class="absolute bottom-3 right-5 text-gray-400 font-bold text-2xl hidden md:block">,</span>
