@@ -248,3 +248,13 @@ const hideTerminal = () => {
 
 document.querySelector(".terminal-start").addEventListener("click", animateTerminal);
 document.querySelector(".terminal-close").addEventListener("click", hideTerminal);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const bannerHidden = localStorage.getItem("bannerHidden");
+    if (!bannerHidden) document.querySelector(".hire-banner").classList.remove("hidden");
+
+    document.querySelector(".hide-hire-banner").addEventListener("click", () => {
+        document.querySelector(".hire-banner").classList.add("hidden");
+        localStorage.setItem("bannerHidden", "true");
+    });
+});
