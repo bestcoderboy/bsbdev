@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -f website/static/styles/src.css",
-    "build": "node build.js && npm run minify && npm run clean",
+    "build": "npm run tw-build && node build.js && npm run minify && npm run clean",
     "minify": "npm run minify-html && npm run minify-js",
     "minify-html": "html-minifier-terser ./website/index.html -o ./website/index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true",
     "minify-js": "terser website/static/scripts/main.js -o ./website/static/scripts/main.js --compress --mangle",
-    "tw-build": "npx @tailwindcss/cli -i ./website/static/styles/src.css -o ./website/static/styles/build.css --minify --watch"
+    "tw-build": "npx @tailwindcss/cli -i ./website/static/styles/src.css -o ./website/static/styles/build.css --minify",
+    "start": "npx http-server ./website/ --port 8000 --brotli --proxy https://bsb.dev"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.12",
