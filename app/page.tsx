@@ -44,9 +44,13 @@ const projects: { logo: string | false, header: string, description: string, lin
     },
 ]
 
+export const dynamic = "force-dynamic";
+
 export default async function BetaPage() {
     // get my current discord status from Lanyard
-    const lanyardReq = await fetch("https://api.lanyard.rest/v1/users/725417693699899534");
+    const lanyardReq = await fetch("https://api.lanyard.rest/v1/users/725417693699899534", {
+        cache: "no-store"
+    });
     const discordData = await lanyardReq.json();
 
     const statusColor = discordData.data.discord_status === "online" ?
@@ -69,7 +73,7 @@ export default async function BetaPage() {
                 <div className="text-lg md:text-xl">
                     <div className="flex gap-4 items-center mb-3">
                         <div className="relative">
-                            <img src="/logos/bsb-profile.webp" className="size-12 aspect-square object-scale-down" />
+                            <img src="/logos/bsb-profile.webp" className="size-12 aspect-square object-scale-down" alt="" />
                         </div>
                         <h1 className="text-3xl lg:text-4xl font-light">Hello, I&apos;m
                             <span className={titleClasses}> BestSpyBoy</span>.
