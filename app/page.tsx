@@ -25,7 +25,7 @@ const RobloxIcon = ({ className }: { className: string }) => (
 
 const projects: { logo: string | false, header: string, description: string, link: string }[] = [
     {
-        logo: "https://rotheme.com/images/rotheme-logo.png",
+        logo: "/logos/rotheme-logo.webp",
         header: "rotheme",
         description: "A powerful, customizable theme editor for Roblox.",
         link: "https://rotheme.com"
@@ -37,7 +37,7 @@ const projects: { logo: string | false, header: string, description: string, lin
         link: "https://archive.bsb.dev"
     },
     {
-        logo: "/logos/bsb-tools-logo.png",
+        logo: "/logos/bsb-tools-logo.webp",
         header: "tools.bsb.dev",
         description: "An online collection of useful text/developer utilities.",
         link: "https://tools.bsb.dev"
@@ -51,19 +51,21 @@ export default async function BetaPage() {
     const lanyardReq = await fetch("https://api.lanyard.rest/v1/users/725417693699899534", {
         cache: "no-store"
     });
-    const discordData = await lanyardReq.json();
 
-    const statusColor = discordData.data.discord_status === "online" ?
-        "bg-green-500" : discordData.data.discord_status === "idle" ?
+    let discordData = null;
+    if (lanyardReq.ok) discordData = await lanyardReq.json();
+
+    const statusColor = discordData?.data?.discord_status === "online" ?
+        "bg-green-500" : discordData?.data?.discord_status === "idle" ?
             "bg-yellow-500" : "bg-gray-400";
 
-    const musicData = discordData.data.spotify ? {
+    const musicData = discordData?.data?.spotify ? {
         song: discordData.data.spotify.song,
         artist: discordData.data.spotify.artist.replace(";", ",")
     } : null;
 
     // if there's music data, the first activity will always be spotify
-    const activityData = discordData.data.activities && discordData.data.activities[
+    const activityData = discordData?.data?.activities && discordData.data.activities[
         (musicData !== null) ? 1 : 0
     ];
 
@@ -85,12 +87,12 @@ export default async function BetaPage() {
                         &nbsp;and <RobloxIcon className="-mt-1"/>&nbsp;
                         <ModalLink text="Roblox games" modalText="Contributed 10M+ visits" />.
                     </p>
-                    <StatusText
+                    {discordData ? <StatusText
                         status={discordData.data.discord_status}
                         statusColor={statusColor}
                         musicData={musicData}
                         activityData={activityData}
-                    />
+                    /> : null}
                 </div>
 
                 <hr className="border border-white/10 my-5"/>
