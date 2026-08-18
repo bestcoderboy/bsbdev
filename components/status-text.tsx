@@ -11,28 +11,30 @@ export default function StatusText(
     const Icon = isCoding ? Code : activityData ? Gamepad2 : EmptyIcon;
 
     return (
-        <p className="text-white/50 text-sm mt-4 flex gap-3 items-center">
-            <span className={`size-3 relative ${statusColor} rounded-full`}>
-                <span className={`size-3 absolute top-0 ${statusColor} rounded-full animate-ping`} />
-            </span>
+        <div className="text-white/50 text-sm mt-4 flex gap-3 items-center">
+            <div className={`size-3 relative ${statusColor} rounded-full aspect-square`}>
+                <span className={`size-3 absolute top-0 ${statusColor} rounded-full animate-ping aspect-square`} />
+            </div>
 
-            {musicData && <>
+            <div className="md:flex gap-3 items-center">
+                {musicData && <div className="flex gap-3 items-center">
                 <span>
                     Listening to <span className="font-semibold">{musicData.song}</span> by <span className="font-semibold">{musicData.artist}</span>
                 </span>
-                <Music className="text-gray-400 size-4 -ms-2" />
-            </>}
+                    <Music className="text-gray-400 size-4 -ms-2 hidden md:block" />
+                </div>}
 
-            {musicData && activityData && "•"}
+                {musicData && activityData && <p className="hidden md:block">•</p>}
 
-            {activityData && <>
+                {activityData && <div className="flex gap-3 items-center">
                 <span>
                     {isCoding ? "Developing on" : "Playing"} <span className="font-semibold">{activityData.name}</span>
                 </span>
-                <Icon className="text-gray-400 size-4 -ms-2" />
-            </>}
+                    <Icon className="text-gray-400 size-4 -ms-2 hidden md:block" />
+                </div>}
 
-            {!activityData && !musicData && `Currently ${status}`}
-        </p>
+                {!activityData && !musicData && `Currently ${status}`}
+            </div>
+        </div>
     )
 }

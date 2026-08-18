@@ -16,10 +16,10 @@ export function GithubIcon(props: SVGAttributes<SVGElement>) {
     )
 }
 
-export function RobloxIcon(props: SVGAttributes<SVGElement>) {
+export function RobloxIcon({ className }: { className: string }) {
     return (
-        <svg {...props} viewBox="1 5 40 38">
-            <path fill="currentColor" d="M 11.0466 2.6358 l -8.169 30.5428 l 30.5428 8.1762 l 8.169 -30.5428 z M 19.1154 16.6607 l 8.5218 2.284 l -2.284 8.5218 l -8.529 -2.284 z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.8 60.8" fill="currentColor" className={`inline-block size-5.5 ${className}`}>
+            <path d="M14.87 3.525 57.27 14.875 45.93 57.275 3.53 45.925M34.73 37.995 37.9 26.165 26.07 22.995 22.89 34.825"/>
         </svg>
     )
 }

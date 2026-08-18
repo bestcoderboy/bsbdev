@@ -1,7 +1,9 @@
-import {DiscordIcon, GithubIcon} from "@/components/social-icons";
+import { DiscordIcon, GithubIcon, RobloxIcon } from "@/components/social-icons";
 import ProjectItem from "@/components/project-item";
 import ModalLink from "@/components/modal-link";
 import StatusText from "@/components/status-text";
+import {Mail} from "lucide-react";
+import EmailButton from "@/components/email-details";
 
 const titleClasses = `font-semibold text-transparent bg-clip-text ` +
     `bg-gradient-to-bl from-teal-100 to-teal-300 ` +
@@ -14,12 +16,6 @@ const WebIcon = () => (
         <circle cx="12" cy="12" r="10"/>
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
         <path d="M2 12h20"/>
-    </svg>
-)
-
-const RobloxIcon = ({ className }: { className: string }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.8 60.8" fill="currentColor" className={`inline-block size-5.5 ${className}`}>
-        <path d="M14.87 3.525 57.27 14.875 45.93 57.275 3.53 45.925M34.73 37.995 37.9 26.165 26.07 22.995 22.89 34.825"/>
     </svg>
 )
 
@@ -106,7 +102,7 @@ export default async function BetaPage() {
 
                 <hr className="border border-white/10 my-5"/>
 
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-3 mb-12">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
                     <div className="flex gap-1.5 items-center text-white/70">
                         <RobloxIcon className="size-4 -mt-px"/> <a
                         href="https://www.roblox.com/users/301814265/profile">@BestSpyBoy</a>
@@ -119,6 +115,14 @@ export default async function BetaPage() {
                     <div className="flex gap-1.5 items-center text-white/70">
                         <DiscordIcon className="size-5"/> <a href="https://bsb.dev/discord">@bestspyboy</a>
                     </div>
+                    <span className="hidden md:block">•</span>
+                    <EmailButton />
+                </div>
+
+                <div className="mb-12">
+                    <noscript>
+                        <p className="text-red-400 mt-2">JavaScript is required to view my email.</p>
+                    </noscript>
                 </div>
             </div>
         </div>
