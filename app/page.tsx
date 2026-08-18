@@ -106,7 +106,7 @@ export default async function BetaPage() {
 
                 <hr className="border border-white/10 my-5"/>
 
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-3 mb-12">
                     <div className="flex gap-1.5 items-center text-white/70">
                         <RobloxIcon className="size-4 -mt-px"/> <a
                         href="https://www.roblox.com/users/301814265/profile">@BestSpyBoy</a>
