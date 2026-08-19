@@ -1,9 +1,8 @@
 import { DiscordIcon, GithubIcon, RobloxIcon } from "@/components/social-icons";
-import ProjectItem from "@/components/project-item";
 import ModalLink from "@/components/modal-link";
 import StatusText from "@/components/status-text";
-import {Mail} from "lucide-react";
 import EmailButton from "@/components/email-details";
+import ProjectDetails from "@/components/project-details";
 
 const titleClasses = `font-semibold text-transparent bg-clip-text ` +
     `bg-gradient-to-bl from-teal-100 to-teal-300 ` +
@@ -18,27 +17,6 @@ const WebIcon = () => (
         <path d="M2 12h20"/>
     </svg>
 )
-
-const projects: { logo: string | false, header: string, description: string, link: string }[] = [
-    {
-        logo: "/logos/rotheme-logo.webp",
-        header: "rotheme",
-        description: "A powerful, customizable theme editor for Roblox.",
-        link: "https://rotheme.com"
-    },
-    {
-        logo: false,
-        header: "The Roblox Archives",
-        description: "Over 46K posts from the DevForum's old Lounge category.",
-        link: "https://archive.bsb.dev"
-    },
-    {
-        logo: "/logos/bsb-tools-logo.webp",
-        header: "tools.bsb.dev",
-        description: "An online collection of useful text/developer utilities.",
-        link: "https://tools.bsb.dev"
-    },
-]
 
 export const dynamic = "force-dynamic";
 
@@ -93,12 +71,7 @@ export default async function BetaPage() {
 
                 <hr className="border border-white/10 my-5"/>
 
-                <h2 className="text-2xl font-semibold mb-4">Current projects</h2>
-                <div className="flex flex-col gap-2">
-                    {projects.map((item, i) => (
-                        <ProjectItem {...item} key={i}/>
-                    ))}
-                </div>
+                <ProjectDetails />
 
                 <hr className="border border-white/10 my-5"/>
 
